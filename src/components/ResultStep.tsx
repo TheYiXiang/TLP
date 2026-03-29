@@ -1,11 +1,6 @@
 import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import {
-  Download,
-  RefreshCw,
-  Sparkles,
-  Star,
-} from "lucide-react";
+import { Download, RefreshCw, Sparkles, Star } from "lucide-react";
 import { toPng } from "html-to-image";
 import { TarotCard, SpreadType } from "../types";
 
@@ -97,9 +92,11 @@ export const ResultStep: React.FC<ResultStepProps> = ({
           className={`grid w-full place-items-center gap-x-8 gap-y-16 ${
             spread.cardCount === 10
               ? "grid-cols-2 md:grid-cols-5 max-w-6xl"
-              : cards.length > 3
-                ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl"
-                : "grid-cols-1 md:grid-cols-3 max-w-5xl"
+              : cards.length === 1
+                ? "grid-cols-1 max-w-md"
+                : cards.length > 3
+                  ? "grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-6xl"
+                  : "grid-cols-1 md:grid-cols-3 max-w-5xl"
           }`}
         >
           {cards.map((card, i) => (
